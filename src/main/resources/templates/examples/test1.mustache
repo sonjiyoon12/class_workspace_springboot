@@ -1,0 +1,31 @@
+
+{{> examples/head}}
+
+<body>
+    <h1>머스태치 학습 예제 1</h1>
+    <p>문자열 : {{stringValue}}</p>
+    <p>숫자 : {{intValue}}</p>
+
+    <p>HTML 렌더링(가능한 사용 금지 - 보안에 취약) : {{{htmlContent}}}</p>
+
+    <!-- 섹션 문법 -->
+    {{#hasData}}
+        <p>데이터존재 :{{data}}</p>
+    {{/hasData}}
+
+    <!-- 부정 섹션 -> null 처리 확인-->
+    {{^noData}}
+        <p style="color:red">데이터가 없습니다</p>
+    {{/noData}}
+
+    <!-- 머스태치 코드에서 주석은 {{! }}  -->
+    <ul>
+        {{#items}}
+        {{! 키 값이 없는 컬렉션(자료구조)을 처리할 때 . 을 표기해서 사용한다. }}
+        <li>{{.}}</li>
+        {{/items}}
+    </ul>
+
+    {{! 머스태치 주석 (이 부분은 출력이 되지 않습니다}}
+
+    {{> common/footer}}
